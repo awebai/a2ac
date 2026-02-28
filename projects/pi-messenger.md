@@ -4,7 +4,7 @@ A multi-agent communication extension for the Pi coding agent. Enables agents to
 
 ## Layers addressed
 
-- **Communication** — File-based message passing between agents
+- **Messaging** — File-based message passing between agents
 - **Coordination** — Presence (active/idle/away/stuck), file reservations, crew roles (planner, worker, reviewer), swarm mode for autonomous task execution
 
 ## How it works

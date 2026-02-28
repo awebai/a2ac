@@ -10,7 +10,7 @@ Agent-to-agent communication breaks down into five concerns. Different projects 
 
 1. [Discovery](#1-discovery--where-are-the-agents-and-what-can-they-do)
 2. [Identity](#2-identity--is-this-agent-who-it-claims-to-be)
-3. [Communication](#3-communication--how-do-messages-get-from-a-to-b)
+3. [Messaging](#3-messaging--how-do-messages-get-from-a-to-b)
 4. [Coordination](#4-coordination--how-do-agents-work-together-over-time)
 5. [Tool access](#5-tool-access--how-does-an-agent-use-external-capabilities)
 
@@ -30,26 +30,29 @@ When agent A receives a message from agent B, how does it verify that B is who i
 
 Identity is widely acknowledged as the hardest unsolved problem in the space. Most protocols punt on it — [A2A](projects/a2a.md) delegates to transport-layer auth (OAuth, API keys), which means the *server* is authenticated but the *agent* is not. See [Open Questions](open-questions.md#identity).
 
-### 3. Communication — "How do messages get from A to B?"
+### 3. Messaging — "How do messages get from A to B?"
 
-The actual transport: message formats, delivery semantics, streaming, encoding.
+Message formats, delivery semantics, streaming, encoding, and exchange patterns.
 
-**Who's working on it:** [A2A](projects/a2a.md) (JSON-RPC over HTTP/SSE, task-oriented), [AMTP](projects/amtp.md) (federated email-like model with guaranteed delivery), [NLIP](projects/nlip.md) (Ecma-standardized envelope protocol, transport-agnostic), [AGNTCY](projects/agntcy.md) (SLIM — quantum-safe messaging via MLS), [ANP](projects/anp.md) (meta-protocol negotiation layer).
+**Who's working on it:** [A2A](projects/a2a.md) (JSON-RPC over HTTP/SSE, task-oriented), [aWeb](projects/aweb.md) (signed mail and real-time chat via relay server), [AMTP](projects/amtp.md) (federated email-like model with guaranteed delivery), [NLIP](projects/nlip.md) (Ecma-standardized envelope protocol, transport-agnostic), [AGNTCY](projects/agntcy.md) (SLIM — quantum-safe messaging via MLS), [ANP](projects/anp.md) (meta-protocol negotiation layer).
 
-These vary on several axes:
+A key distinction is how "synchronous" each protocol really is. Request-response (send a task, wait for the result) is different from interactive chat (both agents present, exchanging messages in real time). Most protocols do the former; few do the latter.
 
-| | Synchronous | Asynchronous | Streaming |
-|--|:-:|:-:|:-:|
-| **A2A** | ✓ | ✓ (polling) | ✓ (SSE) |
-| **AMTP** | — | ✓ (core design) | — |
-| **NLIP** | ✓ | ✓ | ✓ (WebSocket) |
-| **AGNTCY/SLIM** | ✓ | ✓ | ✓ |
+|                 | Request-response | Interactive (real-time) | Async (store-and-forward) | Streaming |
+|-----------------|:----------------:|:-----------------------:|:-------------------------:|:---------:|
+| **A2A**         |        ✓         |            —            |        ✓ (polling)        | ✓ (SSE)   |
+| **aWeb**        |        —         |        ✓ (chat)         |        ✓ (mail)           | ✓ (SSE)   |
+| **AMTP**        |        —         |            —            |      ✓ (core design)      |     —     |
+| **NLIP**        |        ✓         |            —            |            ✓              | ✓ (WebSocket) |
+| **AGNTCY/SLIM** |        ✓         |            —            |            ✓              |     ✓     |
 
-A2A dominates mindshare here with 50+ backers under the Linux Foundation. AMTP takes a radically different approach — federated and asynchronous, like email for agents. NLIP is the only one with formal Ecma standardization.
+In aWeb, agents run a local client (`aw`) that sends messages to a relay server; the recipient's client picks them up. Mail is async (store-and-forward), chat is synchronous with SSE streaming. aWeb is currently the only protocol where agents can engage in real-time chat sessions with signed messages.
+
+A2A dominates mindshare with 50+ backers under the Linux Foundation. AMTP takes a radically different approach — federated and asynchronous, like email for agents. NLIP is the only one with formal Ecma standardization.
 
 ### 4. Coordination — "How do agents work together over time?"
 
-Communication gets a single message from A to B. Coordination is about ongoing relationships: persistent conversations, presence (who's online?), distributed locks (who's working on what file?), contacts, and shared state.
+Messaging gets a single message from A to B. Coordination is about ongoing relationships: persistent conversations, presence (who's online?), distributed locks (who's working on what file?), contacts, and shared state.
 
 **Who's working on it:** [aWeb](projects/aweb.md) (messaging, presence, locks, contacts, cryptographic identity), [MCP Agent Mail](projects/mcp-agent-mail.md) (email-like inboxes + file reservations for coding agents), [Pi-Messenger](projects/pi-messenger.md) (file-based coordination with crew roles).
 
@@ -69,21 +72,19 @@ The choice between MCP-based and local-runtime-based architectures has consequen
 
 ## How the projects map to the layers
 
-| Project | Discovery | Identity | Communication | Coordination | Tool access |
-|---------|:-:|:-:|:-:|:-:|:-:|
-| [A2A](projects/a2a.md) | ✓ | — | ✓ | — | — |
-| [ACP/BeeAI](projects/acp-beeai.md) | ✓ | — | ✓ | — | — |
-| [AGNTCY](projects/agntcy.md) | ✓ | ✓ | ✓ | — | — |
-| [ANP](projects/anp.md) | — | ✓ | ✓ | — | — |
-| [AMTP](projects/amtp.md) | ✓ | — | ✓ | — | — |
-| [NLIP](projects/nlip.md) | — | — | ✓ | — | — |
-| [NANDA](projects/nanda.md) | ✓ | ✓ | — | — | — |
-| [MCP](projects/mcp.md) | — | — | — | — | ✓ |
-| [aWeb](projects/aweb.md) | ✓ | ✓ | ✓ | ✓ | — |
-| [MCP Agent Mail](projects/mcp-agent-mail.md) | — | — | ✓ | ✓ | — |
-| [Pi-Messenger](projects/pi-messenger.md) | — | — | ✓ | ✓ | — |
-
-Note: aWeb’s “Discovery” is server-scoped (listing + address resolution), not a global registry.
+| Project                                      | Discovery | Identity | Messaging | Coordination | Tool access |
+|----------------------------------------------|:---------:|:--------:|:---------:|:------------:|:-----------:|
+| [A2A](projects/a2a.md)                       |     ✓     |    —     |     ✓     |      —       |      —      |
+| [ACP/BeeAI](projects/acp-beeai.md)           |     ✓     |    —     |     ✓     |      —       |      —      |
+| [AGNTCY](projects/agntcy.md)                 |     ✓     |    ✓     |     ✓     |      —       |      —      |
+| [ANP](projects/anp.md)                       |     —     |    ✓     |     ✓     |      —       |      —      |
+| [AMTP](projects/amtp.md)                     |     ✓     |    —     |     ✓     |      —       |      —      |
+| [NLIP](projects/nlip.md)                     |     —     |    —     |     ✓     |      —       |      —      |
+| [NANDA](projects/nanda.md)                   |     ✓     |    ✓     |     —     |      —       |      —      |
+| [MCP](projects/mcp.md)                       |     —     |    —     |     —     |      —       |      ✓      |
+| [aWeb](projects/aweb.md)                     |     -     |    ✓     |     ✓     |      ✓       |      —      |
+| [MCP Agent Mail](projects/mcp-agent-mail.md) |     —     |    —     |     ✓     |      ✓       |      —      |
+| [Pi-Messenger](projects/pi-messenger.md)     |     —     |    —     |     ✓     |      ✓       |      —      |
 
 Note: [FIPA-ACL](projects/fipa-acl.md) (1990s–2000s) is the historical ancestor. Most ideas in the current landscape — performatives, capability descriptions, interaction protocols — were first explored there.
 
@@ -91,7 +92,7 @@ Note: [FIPA-ACL](projects/fipa-acl.md) (1990s–2000s) is the historical ancesto
 
 These projects don't exist in isolation. Some are explicitly designed to compose:
 
-- **NANDA + A2A + aWeb**: NANDA handles discovery ("find the right agent"), A2A handles task delegation ("do this for me"), aWeb handles ongoing coordination ("let's work together"). NANDA's team explicitly expects other protocols to handle communication.
+- **NANDA + A2A + aWeb**: NANDA handles discovery ("find the right agent"), A2A handles task delegation ("do this for me"), aWeb handles ongoing coordination ("let's work together"). NANDA's team explicitly expects other protocols to handle messaging.
 
 - **MCP + everything**: MCP gives agents their capabilities. Most agent-to-agent protocols assume agents already have tools and focus on inter-agent communication.
 

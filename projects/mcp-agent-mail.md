@@ -4,7 +4,7 @@ An asynchronous coordination layer for AI coding agents, built as a FastMCP serv
 
 ## Layers addressed
 
-- **Communication** — Email-like messaging between agents (send, receive, search, threads)
+- **Messaging** — Email-like messaging between agents (send, receive, search, threads)
 - **Coordination** — File reservations to prevent coding agents from stepping on each other's work
 
 ## How it works

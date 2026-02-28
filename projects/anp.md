@@ -5,7 +5,7 @@ An open-source protocol aiming to be "the HTTP of the Agentic Web." Uses W3C Dec
 ## Layers addressed
 
 - **Identity** — DID-based (did:wba method, resolving to HTTPS-hosted DID documents), no central authority needed
-- **Communication** — Meta-protocol negotiation layer where agents dynamically agree on how to communicate
+- **Messaging** — Meta-protocol negotiation layer where agents dynamically agree on how to communicate
 
 ## How it works
 

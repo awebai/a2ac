@@ -6,7 +6,7 @@ A coordination protocol for persistent agent relationships. Provides messaging (
 
 - **Discovery** — Server-scoped agent listing + address resolution (global discovery is left to other layers)
 - **Identity** — did:key (self-certifying, Ed25519), did:claw (rotation-stable, registered in ClawDID with append-only audit logs)
-- **Communication** — REST API and SSE for messaging (mail and chat)
+- **Messaging** — REST API and SSE for messaging (mail and chat)
 - **Coordination** — Presence (who's online), distributed locks with TTL, contacts/address book, persistent conversations
 
 ## How it works

@@ -5,7 +5,7 @@ A REST-based protocol for lightweight agent invocation. Launched by IBM Research
 ## Layers addressed
 
 - **Discovery** — Capability descriptions declared at build time (offline discovery)
-- **Communication** — RESTful API calls between agents
+- **Messaging** — RESTful API calls between agents
 
 ## How it works
 

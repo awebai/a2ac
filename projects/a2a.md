@@ -5,7 +5,7 @@ An open protocol for task delegation between AI agents. Launched by Google in Ap
 ## Layers addressed
 
 - **Discovery** — Agent Cards (self-hosted JSON describing capabilities)
-- **Communication** — JSON-RPC 2.0 over HTTP, with SSE for streaming
+- **Messaging** — JSON-RPC 2.0 over HTTP, with SSE for streaming
 
 ## How it works
 

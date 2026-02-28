@@ -4,7 +4,7 @@ The original agent communication languages from the 1990s–2000s. KQML (Knowled
 
 ## Layers addressed (historically)
 
-- **Communication** — Structured message formats with formal semantics
+- **Messaging** — Structured message formats with formal semantics
 - **Coordination** — Interaction protocols (contract net, subscribe/notify, brokering)
 - **Discovery** — Capability descriptions and matchmaking
 

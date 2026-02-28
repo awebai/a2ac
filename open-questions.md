@@ -66,7 +66,7 @@ Who bridges this gap? Does one of the practical tools grow into a general protoc
 We have 10+ active projects in a space that probably needs 2-3 standards. Historical precedent (HTTP, SMTP, REST) suggests the ecosystem will consolidate, but it's too early to know how.
 
 Possible outcomes:
-- **Layered convergence** — one winner per layer (e.g., NANDA for discovery, A2A for communication, something for identity). Projects compose rather than compete.
+- **Layered convergence** — one winner per layer (e.g., NANDA for discovery, A2A for messaging, something for identity). Projects compose rather than compete.
 - **Platform dominance** — a comprehensive project (AGNTCY? aWeb?) wins across multiple layers and becomes the default stack.
 - **De facto standardization** — whatever the biggest AI providers ship becomes the standard, regardless of technical merit.
 - **Fragmentation** — enterprise and open-source ecosystems develop separate, incompatible stacks.

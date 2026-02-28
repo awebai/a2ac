@@ -5,7 +5,7 @@ A federated, asynchronous protocol modeled on email. Uses `agent@domain` address
 ## Layers addressed
 
 - **Discovery** — DNS-based (SRV/TXT records), like how email uses MX records
-- **Communication** — Asynchronous message delivery through federated gateways
+- **Messaging** — Asynchronous message delivery through federated gateways
 
 ## How it works
 

@@ -4,7 +4,7 @@ An Ecma International standard (ECMA-430 and related specs), published December 
 
 ## Layers addressed
 
-- **Communication** — Multimodal message envelope with bindings for HTTP, WebSocket (CBOR encoding), and AMQP
+- **Messaging** — Multimodal message envelope with bindings for HTTP, WebSocket (CBOR encoding), and AMQP
 
 ## How it works
 
