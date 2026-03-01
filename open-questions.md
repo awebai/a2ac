@@ -1,3 +1,8 @@
+---
+title: Open Questions
+nav_order: 3
+---
+
 # Open Questions
 
 Hard problems in agent-to-agent communication that nobody has fully solved. These are discussion topics for the community, not rhetorical complaints.

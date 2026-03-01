@@ -1,3 +1,8 @@
+---
+title: NANDA
+parent: Projects
+---
+
 # NANDA (Networked AI Agents in Decentralized Architecture)
 
 A discovery and federation framework from MIT Media Lab (Ramesh Raskar). Focuses on a specific problem: how do agents find each other across organizational and protocol boundaries? Builds on MCP and A2A to add discovery and identity verification. The NANDA Index is currently hosted at 15 universities and partner institutions.

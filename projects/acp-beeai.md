@@ -1,3 +1,8 @@
+---
+title: ACP / BeeAI
+parent: Projects
+---
+
 # IBM ACP (Agent Communication Protocol) / BeeAI
 
 A REST-based protocol for lightweight agent invocation. Launched by IBM Research in March 2025 under the Linux Foundation's BeeAI community. Now officially part of A2A under the Linux Foundation.

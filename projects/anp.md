@@ -1,3 +1,8 @@
+---
+title: ANP
+parent: Projects
+---
+
 # ANP (Agent Network Protocol)
 
 An open-source protocol aiming to be "the HTTP of the Agentic Web." Uses W3C Decentralized Identifiers (DIDs) for agent identity and builds a three-layer architecture separating identity, negotiation, and application concerns.

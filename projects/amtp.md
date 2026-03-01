@@ -1,3 +1,8 @@
+---
+title: AMTP
+parent: Projects
+---
+
 # AMTP (Agent Message Transfer Protocol)
 
 A federated, asynchronous protocol modeled on email. Uses `agent@domain` addressing with DNS-based discovery. Designed for reliable cross-organization agent communication.

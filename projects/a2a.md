@@ -1,3 +1,8 @@
+---
+title: A2A
+parent: Projects
+---
+
 # Google A2A (Agent2Agent Protocol)
 
 An open protocol for task delegation between AI agents. Launched by Google in April 2025, now under the Linux Foundation. Over 50 technology partners including Atlassian, Salesforce, SAP, and ServiceNow. Currently the highest-profile project in the space.

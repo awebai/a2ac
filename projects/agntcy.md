@@ -1,3 +1,8 @@
+---
+title: AGNTCY
+parent: Projects
+---
+
 # AGNTCY
 
 Not a single protocol but a full infrastructure stack for what its creators call the "Internet of Agents." Launched by Cisco's Outshift in March 2025, now under the Linux Foundation with 70+ supporting companies. Formative members include Cisco, Dell, Google, Oracle, and Red Hat, with additional backing from LangChain, LlamaIndex, CrewAI, and Weaviate.

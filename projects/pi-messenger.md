@@ -1,3 +1,8 @@
+---
+title: Pi-Messenger
+parent: Projects
+---
+
 # Pi-Messenger
 
 A multi-agent communication extension for the Pi coding agent. Enables agents to coordinate on shared codebases with presence tracking, file reservations, and a crew/swarm system. Published as an NPM package.

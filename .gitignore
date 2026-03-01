@@ -1,2 +1,5 @@
 .emacs-bu*
 .env*
+.DS_Store
+_site/
+.jekyll-cache/

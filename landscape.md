@@ -1,3 +1,8 @@
+---
+title: Landscape
+nav_order: 2
+---
+
 # Agent-to-Agent Communication Landscape
 
 *Last updated: February 2026*
