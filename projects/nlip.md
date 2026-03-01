@@ -1,8 +1,3 @@
----
-title: NLIP
-parent: Projects
----
-
 # NLIP (Natural Language Interaction Protocol)
 
 An Ecma International standard (ECMA-430 and related specs), published December 2025. An application-level "envelope protocol" for agent-to-agent and human-to-agent communication using natural language as the primary medium.

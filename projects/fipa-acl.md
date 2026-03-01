@@ -1,8 +1,3 @@
----
-title: FIPA-ACL
-parent: Projects
----
-
 # FIPA-ACL and KQML
 
 The original agent communication languages from the 1990s–2000s. KQML (Knowledge Query and Manipulation Language, early 1990s, DARPA) and FIPA-ACL (Foundation for Intelligent Physical Agents, founded 1996, specs ratified ~2000). FIPA was later re-established as an IEEE Computer Society standards committee in 2005. Not active projects today, but included here because every modern A2AC project is building on ideas that originated here.

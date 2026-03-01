@@ -1,5 +1,6 @@
 .emacs-bu*
 .env*
 .DS_Store
-_site/
-.jekyll-cache/
+node_modules/
+.vitepress/cache/
+.vitepress/dist/

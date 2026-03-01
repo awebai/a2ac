@@ -1,0 +1,9 @@
+.VPNavBarTitle .logo {
+  height: 48px;
+  width: 48px;
+}
+
+.VPNavBarTitle .title span {
+  font-size: 36px;
+  font-weight: 700;
+}

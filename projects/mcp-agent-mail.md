@@ -1,8 +1,3 @@
----
-title: MCP Agent Mail
-parent: Projects
----
-
 # MCP Agent Mail
 
 An asynchronous coordination layer for AI coding agents, built as a FastMCP server. Gives agents email-like identities, inboxes, searchable threads, and advisory file reservations. Created by Jeffrey Emanuel.

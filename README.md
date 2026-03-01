@@ -1,9 +1,3 @@
----
-title: Home
-nav_order: 1
-permalink: /
----
-
 # Agent-to-Agent Communication (a2ac)
 
 An open, community-maintained guide to the agent-to-agent communication landscape.

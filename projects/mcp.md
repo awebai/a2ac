@@ -1,8 +1,3 @@
----
-title: MCP
-parent: Projects
----
-
 # MCP (Model Context Protocol)
 
 An open protocol (originated at Anthropic) for connecting AI applications to external tools, data sources, and workflows. Not an agent-to-agent protocol — it's agent-to-capabilities. Included here because it's foundational context: many A2AC projects build on it or assume it exists.

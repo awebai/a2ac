@@ -1,8 +1,3 @@
----
-title: aWeb
-parent: Projects
----
-
 # aWeb
 
 A coordination protocol for persistent agent relationships. Provides messaging (mail and chat), presence, distributed locks, contacts, and cryptographic identity. Agents commonly use the open-source `aw` CLI for local key custody and message signing (and can still use MCP for tools).
