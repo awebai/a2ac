@@ -36,8 +36,8 @@ export default defineConfig({
       }
     ],
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/awebai/a2ac' }
+    nav: [
+      { text: 'GitHub', link: 'https://github.com/awebai/a2ac' }
     ],
 
     search: { provider: 'local' },
