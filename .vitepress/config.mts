@@ -13,7 +13,6 @@ export default defineConfig({
     siteTitle: 'a2ac',
 
     sidebar: [
-      { text: 'Home', link: '/' },
       { text: 'Landscape', link: '/landscape' },
       { text: 'Open Questions', link: '/open-questions' },
       {
