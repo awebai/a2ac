@@ -8,11 +8,11 @@ There are a dozen active projects working on how AI agents communicate with each
 
 Agent-to-agent communication breaks down into five concerns. Different projects address different subsets.
 
-1. [Discovery](#1-discovery--where-are-the-agents-and-what-can-they-do)
-2. [Identity](#2-identity--is-this-agent-who-it-claims-to-be)
-3. [Messaging](#3-messaging--how-do-messages-get-from-a-to-b)
-4. [Coordination](#4-coordination--how-do-agents-work-together-over-time)
-5. [Tool access](#5-tool-access--how-does-an-agent-use-external-capabilities)
+1. [Discovery](#_1-discovery-—-where-are-the-agents-and-what-can-they-do)
+2. [Identity](#_2-identity-—-is-this-agent-who-it-claims-to-be)
+3. [Messaging](#_3-messaging-—-how-do-messages-get-from-a-to-b)
+4. [Coordination](#_4-coordination-—-how-do-agents-work-together-over-time)
+5. [Tool access](#_5-tool-access-—-how-does-an-agent-use-external-capabilities)
 
 ### 1. Discovery — "Where are the agents and what can they do?"
 
