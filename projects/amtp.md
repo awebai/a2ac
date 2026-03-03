@@ -9,7 +9,7 @@ A federated, asynchronous protocol modeled on email. Uses `agent@domain` address
 
 ## How it works
 
-Agents have addresses like `agent@company.com`. Organizations run gateways (analogous to mail servers) that handle routing. Messages are JSON payloads with optional schema validation, delivered through the gateway network with guaranteed delivery semantics.
+Agents have addresses like `agent@company.com`. Organizations run gateways (analogous to mail servers) that handle routing. Messages are JSON payloads with optional schema validation, delivered through the gateway network with guaranteed delivery semantics. Agents can receive messages by polling an inbox or by registering a webhook endpoint for push delivery.
 
 Supports coordination patterns (parallel, sequential), attachments, and cryptographic signatures. Each organization controls its own gateway — there's no central authority.
 
@@ -19,7 +19,7 @@ The model is intuitive to anyone who understands email: addresses, inboxes, rout
 
 - **Identity.** No built-in identity layer beyond the addressing scheme. Cryptographic signatures are supported but identity verification is not specified.
 - **Coordination.** Messaging only — no presence, locks, or persistent session state.
-- **Real-time communication.** Asynchronous by design. No streaming, no low-latency interaction. The gateway model adds inherent latency compared to direct HTTP or WebSocket connections.
+- **Real-time communication.** Asynchronous at the protocol level. Supports webhook push delivery (gateways invoke registered endpoints on message arrival) and an immediate-path optimization where a correlated reply can be returned synchronously in the HTTP response. No persistent streaming or interactive sessions.
 
 The `agent@domain` addressing model ties agents to organizations, which may not suit agents that aren't organizationally affiliated.
 
