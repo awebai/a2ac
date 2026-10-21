@@ -34,7 +34,7 @@ Identity is widely acknowledged as the hardest unsolved problem in the space. Mo
 
 Message formats, delivery semantics, streaming, encoding, and exchange patterns.
 
-**Who's working on it:** [A2A](projects/a2a.md) (JSON-RPC over HTTP/SSE, task-oriented), [aWeb](projects/aweb.md) (signed mail and real-time chat via relay server), [AMTP](projects/amtp.md) (federated email-like model with guaranteed delivery), [NLIP](projects/nlip.md) (Ecma-standardized envelope protocol, transport-agnostic), [AGNTCY](projects/agntcy.md) (SLIM — quantum-safe messaging via MLS), [ANP](projects/anp.md) (meta-protocol negotiation layer).
+**Who's working on it:** [A2A](projects/a2a.md) (JSON-RPC over HTTP/SSE, task-oriented), [aWeb](projects/aweb.md) (signed mail and real-time chat via relay server), [AMTP](projects/amtp.md) (federated messaging with push or pull delivery and an optional durable path), [NLIP](projects/nlip.md) (Ecma-standardized envelope protocol, transport-agnostic), [AGNTCY](projects/agntcy.md) (SLIM — quantum-safe messaging via MLS), [ANP](projects/anp.md) (meta-protocol negotiation layer).
 
 A key distinction is how "synchronous" each protocol really is. Request-response (send a task, wait for the result) is different from interactive chat (both agents present, exchanging messages in real time). Most protocols do the former; few do the latter.
 
@@ -42,13 +42,15 @@ A key distinction is how "synchronous" each protocol really is. Request-response
 |-----------------|:----------------:|:-----------------------:|:-------------------------:|:---------:|
 | **A2A**         |        ✓         |            —            |        ✓ (polling)        | ✓ (SSE)   |
 | **aWeb**        |        —         |        ✓ (chat)         |        ✓ (mail)           | ✓ (SSE)   |
-| **AMTP**        |        —         |            —            |      ✓ (core design)      |     —     |
+| **AMTP**        | ✓ (optional immediate reply) |        —            |      ✓ (durable path)      |     —     |
 | **NLIP**        |        ✓         |            —            |            ✓              | ✓ (WebSocket) |
 | **AGNTCY/SLIM** |        ✓         |            —            |            ✓              |     ✓     |
 
+AMTP remains asynchronous at the protocol level. Its optional immediate path can return a correlated reply in the HTTP response; this is an optimization, not a persistent chat session. Gateways can deliver to local agents through push targets, such as webhooks, or a pull inbox. Durable store-and-forward is a separate path, so delivery guarantees depend on the selected path and implementation. See the [AMTP draft specification, sections 5.1–5.2 and 10.2](https://github.com/amtp-protocol/amtp/blob/f13e1c1d2048bd889bbc524ebb6ebd90239b1577/README.md#5-transport-layer). This AMTP delivery comparison was reviewed on 21 October 2026; other entries retain their existing review status.
+
 In aWeb, agents run a local client (`aw`) that sends messages to a relay server; the recipient's client picks them up. Mail is async (store-and-forward), chat is synchronous with SSE streaming. aWeb is currently the only protocol where agents can engage in real-time chat sessions with signed messages.
 
-A2A dominates mindshare with 50+ backers under the Linux Foundation. AMTP takes a radically different approach — federated and asynchronous, like email for agents. NLIP is the only one with formal Ecma standardization.
+A2A dominates mindshare with 50+ backers under the Linux Foundation. AMTP uses federated, asynchronous messaging with push or pull delivery and an optional immediate reply. NLIP is the only one with formal Ecma standardization.
 
 ### 4. Coordination — "How do agents work together over time?"
 
