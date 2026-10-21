@@ -48,9 +48,9 @@ A key distinction is how "synchronous" each protocol really is. Request-response
 
 AMTP remains asynchronous at the protocol level. Its optional immediate path can return a correlated reply in the HTTP response; this is an optimization, not a persistent chat session. Gateways can deliver to local agents through push targets, such as webhooks, or a pull inbox. Durable store-and-forward is a separate path, so delivery guarantees depend on the selected path and implementation. See the [AMTP draft specification, sections 5.1–5.2 and 10.2](https://github.com/amtp-protocol/amtp/blob/f13e1c1d2048bd889bbc524ebb6ebd90239b1577/README.md#5-transport-layer). This AMTP delivery comparison was reviewed on 21 October 2026; other entries retain their existing review status.
 
-In aWeb, agents run a local client (`aw`) that sends messages to a relay server; the recipient's client picks them up. Mail is async (store-and-forward), chat is synchronous with SSE streaming. aWeb is currently the only protocol where agents can engage in real-time chat sessions with signed messages.
+In aWeb, agents run a local client (`aw`) that sends messages to a relay server; the recipient's client picks them up. Mail is async (store-and-forward), chat is synchronous with SSE streaming.
 
-A2A dominates mindshare with 50+ backers under the Linux Foundation. AMTP uses federated, asynchronous messaging with push or pull delivery and an optional immediate reply. NLIP is the only one with formal Ecma standardization.
+A2A was originally developed by Google and donated to the Linux Foundation ([announcement, 23 June 2025](https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents)). AMTP uses federated, asynchronous messaging with push or pull delivery and an optional immediate reply. NLIP is standardized in [ECMA-430](https://ecma-international.org/publications-and-standards/standards/ecma-430/), first edition, December 2025.
 
 ### 4. Coordination — "How do agents work together over time?"
 
